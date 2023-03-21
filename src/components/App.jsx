@@ -53,7 +53,10 @@ export const App = () => {
         <div className="hero__svg"></div>
         <div className="hero__info">
           <p className="hero__tweets">777 tweets</p>
-          <p className="hero__followers">{followers} Followers</p>
+          <p className="hero__followers">
+            {followers.toLocaleString('en-US', { maximumFractionDigits: 0 })}{' '}
+            Followers
+          </p>
           <button
             className="hero__btn"
             style={{
