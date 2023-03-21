@@ -1,11 +1,20 @@
 import './App.css';
 import imageBoy from '../images/boy.png';
 import svgLogo from '../images/logo.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const App = () => {
-  const [followers, setFollowers] = useState(100500);
-  const [isFollowing, setIsFollowing] = useState(false);
+  const [followers, setFollowers] = useState(() => {
+    return JSON.parse(localStorage.getItem('followers')) ?? 100500;
+  });
+  const [isFollowing, setIsFollowing] = useState(() => {
+    return JSON.parse(localStorage.getItem('isFollowing')) ?? false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('followers', JSON.stringify(followers));
+    localStorage.setItem('isFollowing', JSON.stringify(isFollowing));
+  }, [followers, isFollowing]);
 
   const onHandlerClickFollow = () => {
     switch (isFollowing) {
@@ -19,7 +28,7 @@ export const App = () => {
         break;
 
       default:
-        console.log('Invalid subscription type');
+        return;
     }
   };
 
