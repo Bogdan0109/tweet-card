@@ -1,5 +1,5 @@
 import './App.css';
-import imageBoy from '../images/boy.png';
+import imageBoy from '../images/hansels.png';
 import svgLogo from '../images/logo.svg';
 import { useEffect, useState } from 'react';
 
@@ -34,23 +34,21 @@ export const App = () => {
 
   return (
     <section className="hero">
+      <img
+        src={svgLogo}
+        alt="User"
+        className="hero__logo"
+        width="76"
+        height="22"
+      />
       <div className="hero__card">
-        <img
-          src={svgLogo}
-          alt="User"
-          className="hero__logo"
-          width="76"
-          height="22"
-        />
-        <div className="hero__background-image"></div>
         <img
           src={imageBoy}
           alt="User"
           className="hero__image"
-          width="90"
-          height="90"
+          width="80"
+          height="80"
         />
-        <div className="hero__svg"></div>
         <div className="hero__info">
           <p className="hero__tweets">777 tweets</p>
           <p className="hero__followers">
